@@ -1,5 +1,5 @@
-set classpath=.;StockPortfolioSWING.jar
+set classpath=.;StockPortfolioLauncher.jar
 
-java -jar StockPortfolioSWING.jar
+java -jar StockPortfolioLauncher.jar
 
 pause
