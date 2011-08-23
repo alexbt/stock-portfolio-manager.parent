@@ -53,7 +53,7 @@
 <pathelement path="${lib.dir}/opencsv-2.3.jar" />
 <pathelement path="${lib.dir}/microba-0.4.4.3.jar" />
 <pathelement path="${lib.dir}/slf4j-api-1.6.1.jar" />
-<pathelement path="${lib.dir}/slf4j-jdk14-1.6.1.jar" />
+<pathelement path="${lib.dir}/slf4j-log4j12-1.6.1.jar" />
 <pathelement path="${lib.dir}/sqltool.jar" />
 <pathelement path="StockPortfolioBO.jar" />
 <pathelement path="StockPortfolioBP.jar" />
@@ -90,20 +90,22 @@
 			<fileset file="StockPortfolioBO.jar" />
 			<fileset file="StockPortfolioBP.jar" />
 			<fileset file="StockPortfolioLauncher.jar" />
+			<fileset file="launch.bat" />
+		</copy>
+
+		<copy todir="../StockPortfolioGWT/war/WEB-INF/lib">
+			<fileset file="StockPortfolioBO.jar" />
+			<fileset file="StockPortfolioBP.jar" />
+		</copy>
+
+		<copy todir="../BLah/war/WEB-INF/lib">
+			<fileset file="StockPortfolioBO.jar" />
+			<fileset file="StockPortfolioBP.jar" />
 		</copy>
 
 		
 
-		<jar destfile="./StockPortfolio/StockPortfolio_${version}_${timestamp}.zip" basedir="." includes="StockPortfolio/**/*">
-
-<manifest>
-      <attribute name="Built-By" value="Alex Belisle Turcot"/>
-      <attribute name="Implementation-Vendor" value="Proserus inc."/>
-      <attribute name="Implementation-Title" value="Proserus Stocks Portfolio"/>
-      <attribute name="Implementation-Version" value="${version} - ${timestamp}"/> 
-    </manifest>
-
-</jar>
+		<zip destfile="./StockPortfolio/StockPortfolio_${version}_${timestamp}.zip" basedir="." includes="StockPortfolio/**/*"/>
 
 	</target>
 
