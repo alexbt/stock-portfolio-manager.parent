@@ -1,14 +1,17 @@
-set logdir=logs
-set logfile=%logdir%/traces.log
-mkdir %logdir%
+echo off
 
+set logfile=launch.log
 echo -- >> %logfile%
 echo %date%, %time% >> %logfile%
+echo set classpath=.;StockPortfolioLauncher.jar >> %logfile%
 
-set classpath=.;StockPortfolioLauncher.jar
-echo Classpath= %classpath% >> %logfile%
+echo java -jar StockPortfolioLauncher.jar >> %logfile%
 
-echo Executing "java -jar StockPortfolioLauncher.jar" >> %logfile%
+
+echo on
+set classpath=.;StockPortfolioLauncher.jar 2>> %logfile%
+
 java -jar StockPortfolioLauncher.jar 2>> %logfile%
+
 
 pause
