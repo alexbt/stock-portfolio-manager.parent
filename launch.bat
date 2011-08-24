@@ -1,5 +1,14 @@
-set classpath=.;StockPortfolioLauncher.jar
+set logdir=logs
+set logfile=%logdir%/traces.log
+mkdir %logdir%
 
-java -jar StockPortfolioLauncher.jar
+echo -- >> %logfile%
+echo %date%, %time% >> %logfile%
+
+set classpath=.;StockPortfolioLauncher.jar
+echo Classpath= %classpath% >> %logfile%
+
+echo Executing "java -jar StockPortfolioLauncher.jar" >> %logfile%
+java -jar StockPortfolioLauncher.jar 2>> %logfile%
 
 pause
