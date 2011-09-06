@@ -73,20 +73,20 @@
 
 
 
-<mkdir dir="StockPortfolio" />
-<delete includeemptydirs="true">
-			<fileset dir="StockPortfolio" includes="**/*" />
+	<mkdir dir="Output" />
+		<delete includeemptydirs="true">
+			<fileset dir="Output" includes="**/*" />
 		</delete>
 
 		
-		<mkdir dir="StockPortfolio" />
-<mkdir dir="archive/StockPortfolio2/lib" />
+		<mkdir dir="Output/StockPortfolio" />
+		<mkdir dir="archive/StockPortfolio2/lib" />
 
-		<copy todir="StockPortfolio/lib">
+		<copy todir="Output/StockPortfolio/lib">
 			<fileset dir="lib" />
 		</copy>
 
-		<copy todir="StockPortfolio">
+		<copy todir="Output/StockPortfolio">
 			<fileset file="StockPortfolioBO.jar" />
 			<fileset file="StockPortfolioBP.jar" />
 			<fileset file="StockPortfolioLauncher.jar" />
@@ -105,7 +105,18 @@
 
 		
 
-		<zip destfile="./StockPortfolio/StockPortfolio_${version}_${timestamp}.zip" basedir="." includes="StockPortfolio/**/*"/>
+		<zip destfile="Output/StockPortfolio_${version}_${timestamp}.zip" basedir="Output" includes="StockPortfolio/**/*"/>
+
+		<copy todir="Output/StockPortfolio">
+			<fileset file="launch.sh" />
+		</copy>
+
+		<tar destfile="Output/StockPortfolio_${version}_${timestamp}.tar" basedir="Output" includes="StockPortfolio/**/lib/* StockPortfolio/**/StockPortfolioBP.jar StockPortfolio/**/StockPortfolioBO.jar">
+		     <tarfileset dir="Output" filemode="755">
+		         <include name="StockPortfolio/StockPortfolioLauncher.jar"/>
+			<include name="StockPortfolio/launch.sh"/>
+		     </tarfileset>
+		</tar>
 
 	</target>
 
