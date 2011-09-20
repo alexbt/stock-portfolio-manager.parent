@@ -28,5 +28,6 @@
 	<classpathentry kind="lib" path="lib/uispec4j-2.4-jdk16.jar"/>
 	<classpathentry kind="lib" path="lib/microba-0.4.4.3.jar" sourcepath="lib/microba-0.4.4.3-sources.jar"/>
 	<classpathentry kind="lib" path="lib/slf4j-log4j12-1.6.1.jar"/>
+	<classpathentry kind="lib" path="lib/commons-lang3-3.0.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
