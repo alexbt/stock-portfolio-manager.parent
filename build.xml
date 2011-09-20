@@ -112,7 +112,7 @@
 			<fileset file="launch.sh" />
 		</copy>
 
-		<tar destfile="Output/StockPortfolio_${version}_${timestamp}.tar" basedir="Output" includes="StockPortfolio/**/lib/* StockPortfolio/**/StockPortfolioBP.jar StockPortfolio/**/StockPortfolioBO.jar" compression="gzip">
+		<tar destfile="Output/StockPortfolio_${version}_${timestamp}.tar.gz" basedir="Output" includes="StockPortfolio/**/lib/* StockPortfolio/**/StockPortfolioBP.jar StockPortfolio/**/StockPortfolioBO.jar" compression="gzip">
 		     <tarfileset dir="Output" filemode="755">
 		         <include name="StockPortfolio/StockPortfolioLauncher.jar"/>
 			<include name="StockPortfolio/launch.sh"/>
