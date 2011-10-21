@@ -71,6 +71,7 @@
 <ant antfile="../StockPortfolioBO/build.xml" dir="../StockPortfolioBO/" inheritAll="true" inheritRefs="true" />
 <ant antfile="../StockPortfolioBP/build.xml" dir="../StockPortfolioBP/" inheritAll="true" inheritRefs="true" />
 <ant antfile="../StockPortfolioSWING/build.xml" dir="../StockPortfolioSWING/" inheritAll="true" inheritRefs="true" />
+		<ant antfile="../stock-portfolio-manager/build.xml" dir="../stock-portfolio-manager" inheritAll="true" inheritRefs="true" />
 
 
 
@@ -106,16 +107,18 @@
 
 		
 
-		<zip destfile="Output/StockPortfolio_${version}_${timestamp}.zip" basedir="Output" includes="StockPortfolio/**/*"/>
+		<zip destfile="Output/StockPortfolio_${version}${versionSuffix}_${timestamp}.zip" basedir="Output" includes="StockPortfolio/**/*"/>
 
 		<copy todir="Output/StockPortfolio">
 			<fileset file="launch.sh" />
+			<fileset file="launch-on-osx.command" />
 		</copy>
 
-		<tar destfile="Output/StockPortfolio_${version}_${timestamp}.tar.gz" basedir="Output" includes="StockPortfolio/**/lib/* StockPortfolio/**/StockPortfolioBP.jar StockPortfolio/**/StockPortfolioBO.jar" compression="gzip">
+		<tar destfile="Output/StockPortfolio_${version}${versionSuffix}_${timestamp}.tar.gz" basedir="Output" includes="StockPortfolio/**/lib/* StockPortfolio/**/StockPortfolioBP.jar StockPortfolio/**/StockPortfolioBO.jar" compression="gzip">
 		     <tarfileset dir="Output" filemode="755">
 		         <include name="StockPortfolio/StockPortfolioLauncher.jar"/>
 			<include name="StockPortfolio/launch.sh"/>
+			<include name="StockPortfolio/launch-on-osx.command"/>
 		     </tarfileset>
 		</tar>
 
