@@ -6,7 +6,7 @@
 		<jdk.version>1.6</jdk.version>
 		<version>0.24</version>
 		<version.suffix>Beta</version.suffix>
-		<archive.name>StockPortfolio_${version}${version.suffix}_${maven.build.timestamp}</archive.name>
+		<archive.name>StockPortfolio_${project.version}${version.suffix}_${maven.build.timestamp}</archive.name>
 		<archive.ui>StockPortfolioLauncher</archive.ui>
 		<project.ui>stock-portfolio-manager.ui</project.ui>
 		<project.bp>stock-portfolio-manager.bp</project.bp>
@@ -20,6 +20,7 @@
 	<version>${version}</version>
 	<description>Stock Portfolio Manager - Parent</description>
 	<packaging>pom</packaging>
+
 	<build>
 		<plugins>
 
