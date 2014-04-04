@@ -7,6 +7,11 @@
 		<version>0.24</version>
 		<version.suffix>Beta</version.suffix>
 		<archive.name>StockPortfolio_${version}${version.suffix}_${maven.build.timestamp}</archive.name>
+		<archive.ui>StockPortfolioLauncher</archive.ui>
+		<project.ui>stock-portfolio-manager.ui</project.ui>
+		<project.bp>stock-portfolio-manager.bp</project.bp>
+		<project.bo>stock-portfolio-manager.bo</project.bo>
+		<project.package>package</project.package>
 	</properties>
 
 	<groupId>com.proserus.stock</groupId>
@@ -72,9 +77,9 @@
 	</build>
 
 	<modules>
-		<module>../stock-portfolio-manager.bo</module>
-		<module>../stock-portfolio-manager.bp</module>
-		<module>../stock-portfolio-manager.swing</module>
-		<module>package</module>
+		<module>../${project.bo}</module>
+		<module>../${project.bp}</module>
+		<module>../${project.ui}</module>
+		<module>${project.package}</module>
 	</modules>
 </project>
