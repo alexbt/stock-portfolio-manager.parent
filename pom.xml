@@ -4,7 +4,6 @@
 
 	<properties>
 		<jdk.version>1.6</jdk.version>
-		<version>0.24</version>
 		<version.suffix>Beta</version.suffix>
 		<archive.name>StockPortfolio_${project.version}${version.suffix}_${maven.build.timestamp}</archive.name>
 		<archive.ui>StockPortfolioLauncher</archive.ui>
@@ -17,10 +16,10 @@
 	<groupId>com.proserus.stock</groupId>
 	<artifactId>stockportfolioparent</artifactId>
 	<name>Stock Portfolio Manager - Parent</name>
-	<version>${version}</version>
+	<version>0.24</version>
 	<description>Stock Portfolio Manager - Parent</description>
 	<packaging>pom</packaging>
-
+	
 	<build>
 		<plugins>
 
@@ -84,7 +83,7 @@
 			<url>https://maven.atlassian.com/content/repositories/atlassian-public/</url>
 		</repository>
 	</repositories>
-
+	
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
