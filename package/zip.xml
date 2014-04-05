@@ -43,8 +43,8 @@
 				<include>*.jar</include>
 			</includes>
 			<excludes>
-				<exclude>junit-4.11.jar</exclude>
-				<exclude>hamcrest-core-1.3.jar</exclude>
+				<exclude>*junit*.jar</exclude>
+				<exclude>*hamcrest*.jar</exclude>
 			</excludes>
 		</fileSet>
 
