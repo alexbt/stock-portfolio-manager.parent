@@ -35,7 +35,7 @@
 								<descriptor>tar.xml</descriptor>
 							</descriptors>
 							<appendAssemblyId>false</appendAssemblyId>
-							<finalName>${archive.name}</finalName>
+							<finalName>${archive.name}_OSX-Linux</finalName>
 						</configuration>
 					</execution>
 
@@ -50,7 +50,7 @@
 								<descriptor>zip.xml</descriptor>
 							</descriptors>
 							<appendAssemblyId>false</appendAssemblyId>
-							<finalName>${archive.name}</finalName>
+							<finalName>${archive.name}_Windows</finalName>
 						</configuration>
 					</execution>
 				</executions>
