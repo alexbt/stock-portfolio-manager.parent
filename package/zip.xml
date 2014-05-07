@@ -3,6 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2 http://maven.apache.org/xsd/assembly-1.1.2.xsd">
 	<id>ReleaseForMacWindows</id>
+	<baseDirectory>StockPortfolio</baseDirectory>
 	<formats>
 		<format>zip</format>
 	</formats>
@@ -29,7 +30,7 @@
 
 		<fileSet>
 			<directory>../../${project.ui}/target</directory>
-			<outputDirectory></outputDirectory>
+			<outputDirectory>/</outputDirectory>
 			<includes>
 				<include>${archive.ui}.jar</include>
 			</includes>
@@ -57,6 +58,7 @@
 			<lineEnding>dos</lineEnding>
 			<fileMode>0755</fileMode>
 		</fileSet>
+	
 
 	</fileSets>
 
