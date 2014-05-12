@@ -12,6 +12,8 @@
 		<project.bo>stock-portfolio-manager.bo</project.bo>
 		<project.tests>stock-portfolio-manager.tests</project.tests>
 		<project.package>package</project.package>
+		<user.name>Alex Belisle Turcot</user.name>
+		<organisation>Proserus</organisation>
 	</properties>
 
 	<groupId>com.proserus.stock</groupId>
