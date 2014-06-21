@@ -10,7 +10,7 @@
 	<fileSets>
 		<fileSet>
 			<directory>../../${project.bo}/target</directory>
-			<outputDirectory>/</outputDirectory>
+			<outputDirectory>/StockPortfolio/</outputDirectory>
 			<includes>
 				<include>*.properties</include>
 			</includes>
@@ -22,7 +22,7 @@
 		
 		<fileSet>
 			<directory>../../${project.bp}/target</directory>
-			<outputDirectory>/</outputDirectory>
+			<outputDirectory>/StockPortfolio/</outputDirectory>
 			<includes>
 				<include>*.properties</include>
 			</includes>
@@ -30,7 +30,7 @@
 		
 		<fileSet>
 			<directory>../../${project.ui}/target</directory>
-			<outputDirectory></outputDirectory>
+			<outputDirectory>/StockPortfolio/</outputDirectory>
 			<includes>
 				<include>${archive.ui}.jar</include>
 			</includes>
@@ -39,7 +39,7 @@
 		
 		<fileSet>
 			<directory>../../${project.ui}/target/lib</directory>
-			<outputDirectory>/lib</outputDirectory>
+			<outputDirectory>/StockPortfolio/lib</outputDirectory>
 			<includes>
 				<include>*.jar</include>
 			</includes>
@@ -51,7 +51,7 @@
 
 		<fileSet>
 			<directory>../</directory>
-			<outputDirectory>/</outputDirectory>
+			<outputDirectory>/StockPortfolio/</outputDirectory>
 			<includes>
 				<include>*.sh</include>
 				<include>*.command</include>
