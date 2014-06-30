@@ -275,6 +275,22 @@
 				<version>1.7.7</version>
 			</dependency>
 
+			<dependency>
+				<groupId>org.sikuli</groupId>
+				<artifactId>sikuli-core</artifactId>
+				<version>1.0.0</version>
+				<scope>test</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.sikuli</groupId>
+				<artifactId>sikuli-api</artifactId>
+				<scope>test</scope>
+				<version>1.0.2</version>
+			</dependency>
+
+
+
 		</dependencies>
 	</dependencyManagement>
 
