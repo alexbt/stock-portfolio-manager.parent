@@ -44,8 +44,10 @@
 				<include>*.jar</include>
 			</includes>
 			<excludes>
-				<exclude>*junit*.jar</exclude>
-				<exclude>*hamcrest*.jar</exclude>
+				<exclude>junit*.jar</exclude>
+				<exclude>hamcrest*.jar</exclude>
+				<exclude>sikuli*.jar</exclude>
+				<exclude>mockito*.jar</exclude>
 			</excludes>
 		</fileSet>
 
