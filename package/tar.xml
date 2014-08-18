@@ -38,8 +38,8 @@
 		</fileSet>
 		
 		<fileSet>
-			<directory>../../${project.ui}/target/lib</directory>
-			<outputDirectory>/StockPortfolio/lib</outputDirectory>
+			<directory>../../${project.ui}/target/libs</directory>
+			<outputDirectory>/libs</outputDirectory>
 			<includes>
 				<include>*.jar</include>
 			</includes>

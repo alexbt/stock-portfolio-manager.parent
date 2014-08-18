@@ -1,0 +1,183 @@
+def version =  '0.24'
+def ts = getDate()
+
+def getDate() {
+    def date = new Date()
+    def formattedDate = date.format('yyyyMMdd-HHhmmss')
+    return formattedDate
+}
+
+allprojects {
+    apply plugin: 'java'
+	apply plugin: 'eclipse' 
+
+    repositories {
+	    mavenLocal()
+	    mavenCentral()
+	    maven {
+            url "http://maven2.javacv.googlecode.com/git/"
+        }
+	}
+    dependencies {
+        testCompile 'junit:junit:4.11'
+    }
+    
+    sourceSets {
+	    main { 
+	      output.resourcesDir = "build/classes/main" 
+	    }
+	}
+    
+    ext.libraries = [
+    	spring_core: "org.springframework:spring-core:3.1",
+    	junit: "junit:junit:4.11",
+    	guice: "com.google.inject:guice:3.0",
+		apache: [
+			"org.apache.commons:commons-lang3:3.0.1",
+			"org.apache.commons:commons-io:1.3.2",
+			"commons-logging:commons-logging:1.0.4",
+		],
+		log4j: [
+			"org.slf4j:slf4j-api:1.7.7",
+			"org.slf4j:slf4j-log4j12:1.7.7",
+			"log4j:log4j:1.2.17"
+		],
+		microba: "com.michaelbaranov:microba:0.4.4.3",
+		jta: "javax.transaction:jta:1.1",
+		javassist: "javassist:javassist:3.12.0.GA",
+		commonscollections: "commons-collections:commons-collections:3.2.1",
+		hsqldb: "org.hsqldb:hsqldb:2.3.2",
+		antlr: "org.antlr:antlr-runtime:3.0",
+		antlr2: "org.antlr:antlr-runtime:2.7.6",
+		hibernate: [
+			"org.hibernate:hibernate-core:4.3.5.Final",
+			"org.hibernate:hibernate-entitymanager:4.3.5.Final"
+		],
+		dom4j: "dom4j:dom4j:1.6.1",
+		inject: "javax.inject:javax.inject:1",
+		opencsv: "net.sf.opencsv:opencsv:2.3",
+		aopalliance: "aopalliance:aopalliance:1.0",
+		joda: "joda-time:joda-time:1.6",
+		jfree: [
+			"jfree:jfreechart:1.0.13",
+			"jfree:jcommon:1.0.16"
+		],
+		sikuli: [
+			"org.sikuli:sikuli-core:1.1.3",
+			"org.sikuli:sikuli-api:1.1.0",
+      	    "com.googlecode.javacv:javacv:0.7"
+		],
+		mockito: "org.mockito:mockito-all:1.9.5", 
+		reflections: "org.reflections:reflections:0.9.9-RC1"
+	]
+	
+	task copyDependencies(type: Copy) {
+    	into "build/dependencies"
+    	from configurations.runtime
+	}
+
+	task wrapper(type: Wrapper) {
+	    gradleVersion = '2.0'
+	}
+	
+	group = "com.proserus.stock"
+	def ORGANISATION = "Proserus"
+
+	jar.doFirst {
+	    exclude "*.properties"
+	    manifest {
+	    	attributes("Created-By": "Gradle",
+	        		"Implementation-Title": baseName,
+	        		"Implementation-Version": version,
+	        		"Implementation-Vendor-Id": group,
+	        		"Implementation-Vendor": ORGANISATION,
+	        		"Built-By": System.getenv("USERNAME"),
+	        		"Build-jdk": System.getProperty('java.version'),
+	        		"Built-Timestamp": ts,
+	        	)
+	    }
+	}
+	build.dependsOn(copyDependencies)
+}
+	
+	
+	task releaseLinux(type: Tar) { 
+		baseName = "StockPortfolio_${version}Beta_${ts}_OSX-Linux"
+		compression = Compression.GZIP 
+		
+		from ('dependencies'){
+		include '*.jar'
+		into 'libs'
+	 }
+ 
+	 from ('.'){
+		include 'launch.sh'
+		into ''
+		fileMode = 0755
+	 }
+	 
+	 from ('../stock-portfolio-manager.bo/src/main/resources'){
+		include 'sectors.properties'
+		into ''
+	 }
+	 
+	 from ('../stock-portfolio-manager.ui/build/libs'){
+		include '*.jar'
+		into ''
+	 }
+	 from ('../stock-portfolio-manager.ui/build/dependencies'){
+		include '*.jar'
+		into 'libs'
+		fileMode = 0755
+	 }
+	} 
+
+	task releaseWindows(type:Zip) {
+		baseName = "StockPortfolio_${version}Beta_${ts}_Windows"
+ 
+	 from ('dependencies'){
+		include '*.jar'
+		into 'libs'
+	 }
+ 
+	 from ('.'){
+		include 'launch.bat'
+		into ''
+	 }
+	 
+	 from ('../stock-portfolio-manager.bp/build/libs'){
+		include '*.jar'
+		into 'libs'
+	 }
+	 
+	 from ('../stock-portfolio-manager.bo/src/main/resources'){
+		include 'sectors.properties'
+		into ''
+	 }
+	 
+	 from ('../stock-portfolio-manager.ui/build/libs'){
+		include '*.jar'
+		into ''
+	 }
+	 from ('../stock-portfolio-manager.ui/build/dependencies'){
+		include '*.jar'
+		into 'libs'
+	 }
+ 
+	}
+	
+	task release() {
+	}
+
+releaseLinux.dependsOn(subprojects.build)
+releaseLinux.dependsOn(clean)
+releaseLinux.dependsOn(build)
+
+releaseWindows.dependsOn(subprojects.build)
+releaseWindows.dependsOn(clean)
+releaseWindows.dependsOn(build)
+
+release.dependsOn(releaseWindows)
+release.dependsOn(releaseLinux)
+release.dependsOn(test)
+

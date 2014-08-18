@@ -35,7 +35,7 @@
 							<goal>copy-dependencies</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>target/lib</outputDirectory>
+							<outputDirectory>target/libs</outputDirectory>
 						</configuration>
 					</execution>
 				</executions>
