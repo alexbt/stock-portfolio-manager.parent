@@ -1,0 +1,9 @@
+
+syntax: regexp
+^package/target$
+syntax: regexp
+^target$
+syntax: regexp
+^build$
+syntax: regexp
+^dependencies$
