@@ -278,7 +278,7 @@
 			<dependency>
 				<groupId>org.sikuli</groupId>
 				<artifactId>sikuli-core</artifactId>
-				<version>1.0.0</version>
+				<version>1.2.2</version>
 				<scope>test</scope>
 			</dependency>
 
@@ -286,7 +286,7 @@
 				<groupId>org.sikuli</groupId>
 				<artifactId>sikuli-api</artifactId>
 				<scope>test</scope>
-				<version>1.0.2</version>
+				<version>1.2.0</version>
 			</dependency>
 
 
